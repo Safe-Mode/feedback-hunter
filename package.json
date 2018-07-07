@@ -1,0 +1,38 @@
+{
+  "name": "feedback-hunter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "npm run editorconfig && eslint js/",
+    "build": "gulp build",
+    "start": "npm run build && gulp serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Safe-Mode/feedback-hunter.git"
+  },
+  "author": "Safe_Mode",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Safe-Mode/feedback-hunter/issues"
+  },
+  "homepage": "https://github.com/Safe-Mode/feedback-hunter#readme",
+  "devDependencies": {
+    "@htmlacademy/editorconfig-cli": "^1.0.0",
+    "eslint": "^4.17.0",
+    "eslint-config-htmlacademy": "^0.4.2",
+    "browser-sync": "^2.24.5",
+    "browserify": "^16.2.2",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.2.0",
+    "gulp-rename": "^1.3.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0",
+    "run-sequence": "^2.2.1",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "dependencies": {}
+}
