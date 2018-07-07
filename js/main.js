@@ -5,7 +5,8 @@
   var FormInput = require('./app/form-input');
   var Message = require('./app/message');
   var Button = require('./app/button');
-  
+  var Select = require('./app/select');
+
   var form = new Form({
     width: 300,
     padding: 20,
@@ -13,7 +14,7 @@
     right: 20
   });
   var formEl = form.element;
-  
+
   var nameInput = new FormInput('text', 'Ваше имя');
   var nameInputEl = nameInput.element;
   var emailInput = new FormInput('email', 'Ваш email');
@@ -30,12 +31,15 @@
     hPadding: 10
   });
   var buttonEl = button.element;
-  
+  var select = new Select(['Ростовкая обл.', 'Московская обл.', 'Ленинградская обл.']);
+  var selectEl = select.element;
+
   formEl.appendChild(nameInputEl);
   formEl.appendChild(emailInputEl);
   formEl.appendChild(phoneInputEl);
+  formEl.appendChild(selectEl);
   formEl.appendChild(messageEl);
   formEl.appendChild(buttonEl);
-  
+
   document.querySelector('body').appendChild(formEl);
 })();

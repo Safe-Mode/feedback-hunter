@@ -20,8 +20,6 @@ module.exports = function (props) {
       element.style.minWidth = this.minWidth;
       element.style.padding = this.vPadding + ' ' + this.hPadding;
 
-      console.log(element.style.padding);
-
       return element;
     }
   });
