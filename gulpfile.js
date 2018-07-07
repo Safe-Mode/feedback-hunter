@@ -37,7 +37,7 @@ gulp.task('serve', function () {
   server.init({
     server: 'build/',
     notify: false,
-    open: true,
+    open: false,
     cors: true,
     ui: false
   });
