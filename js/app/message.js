@@ -1,5 +1,7 @@
 'use strict';
 
+var setMessageStyle = require('./../style/set-message-style');
+
 module.exports = function (placeholder) {
   this.placeholder = placeholder;
 
@@ -7,14 +9,8 @@ module.exports = function (placeholder) {
     get: function () {
       var element = document.createElement('textarea');
 
-      element.style.boxSizing = 'border-box';
-      element.style.padding = '10px 5px';
-      element.style.width = '100%';
-      element.style.height = '150px';
-      element.style.marginBottom = '10px';
-      element.style.resize = 'none';
-
       element.placeholder = this.placeholder;
+      setMessageStyle(element);
 
       return element;
     }

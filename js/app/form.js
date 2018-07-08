@@ -14,6 +14,7 @@ module.exports = function (props) {
 
       element.style.position = 'fixed';
       element.style.boxSizing = 'border-box';
+      element.style.backgroundColor = '#ffffff';
 
       element.style.width = this.width;
       element.style.padding = this.padding;
