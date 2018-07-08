@@ -1,5 +1,7 @@
 'use strict';
 
+var setButtonStyle = require('./../style/set-button-style');
+
 module.exports = function (props) {
   var MEASURE = 'px';
 
@@ -13,12 +15,11 @@ module.exports = function (props) {
     get: function () {
       var element = document.createElement('button');
 
-      element.style.display = 'block';
-      element.style.boxSizing = 'border-box';
-
       element.textContent = this.text;
       element.style.minWidth = this.minWidth;
       element.style.padding = this.vPadding + ' ' + this.hPadding;
+
+      setButtonStyle(element);
 
       return element;
     }

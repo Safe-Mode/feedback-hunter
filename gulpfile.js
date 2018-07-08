@@ -13,11 +13,14 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 
 gulp.task('browserify', function () {
-  return browserify('js/main.js')
+  return browserify({
+    entries: 'js/main.js',
+    debug: true
+  })
       .bundle()
       .pipe(source('script.js'))
       .pipe(buffer())
-      .pipe(sourcemaps.init())
+      .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(uglify())
       .pipe(rename(
           {suffix: '.min'}

@@ -27,8 +27,8 @@
     text: 'Задать вопрос',
     type: 'submit',
     minWidth: 130,
-    vPadding: 5,
-    hPadding: 10
+    vPadding: 10,
+    hPadding: 15
   });
   var buttonEl = button.element;
   var select = new Select(['Ростовкая обл.', 'Московская обл.', 'Ленинградская обл.']);
