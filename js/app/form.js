@@ -1,5 +1,7 @@
 'use strict';
 
+var setFormStyle = require('./../style/set-form-style');
+
 module.exports = function (props) {
   var MEASURE = 'px';
 
@@ -12,14 +14,12 @@ module.exports = function (props) {
     get: function () {
       var element = document.createElement('form');
 
-      element.style.position = 'fixed';
-      element.style.boxSizing = 'border-box';
-      element.style.backgroundColor = '#ffffff';
-
       element.style.width = this.width;
       element.style.padding = this.padding;
       element.style.bottom = this.bottom;
       element.style.right = this.right;
+
+      setFormStyle(element);
 
       return element;
     }
