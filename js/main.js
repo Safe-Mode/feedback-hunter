@@ -11,20 +11,32 @@
   var Select = require('./app/select');
   var OpenButton = require('./app/open-button');
   var CloseButton = require('./app/close-button');
+  var validate = require('./app/validate');
 
   var form = new Form({
     width: 300,
-    padding: 20,
+    padding: 25,
     bottom: 20,
     right: 20
   });
   var formEl = form.element;
 
-  var nameInput = new FormInput('text', 'Ваше имя');
+  var nameInput = new FormInput({
+    type: 'text',
+    placeholder: 'Ваше имя'
+  });
   var nameInputEl = nameInput.element;
-  var emailInput = new FormInput('email', 'Ваш email');
+  var emailInput = new FormInput({
+    type: 'email',
+    placeholder: 'Ваш email'
+  });
   var emailInputEl = emailInput.element;
-  var phoneInput = new FormInput('tel', 'Ваш телефон');
+  var phoneInput = new FormInput({
+    type: 'tel',
+    placeholder: 'Ваш телефон',
+    required: true,
+    pattern: '^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$'
+  });
   var phoneInputEl = phoneInput.element;
   var message = new Message('В чём заключается ваш вопрос?');
   var messageEl = message.element;
@@ -46,6 +58,11 @@
   formEl.appendChild(messageEl);
   formEl.appendChild(buttonEl);
 
+  var onFormSubmit = function (evt) {
+    validate(evt.target);
+    evt.preventDefault();
+  };
+
   var openButton = new OpenButton({
     size: 60,
     color: redColor,
@@ -58,6 +75,7 @@
   var onOpenBtnClick = function (evt) {
     evt.preventDefault();
     document.querySelector('body').appendChild(formEl);
+    document.querySelector('form').addEventListener('submit', onFormSubmit);
   };
 
   var closeButton = new CloseButton({

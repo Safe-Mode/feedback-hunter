@@ -14,6 +14,10 @@ module.exports = function (props) {
     get: function () {
       var element = document.createElement('form');
 
+      element.method = 'POST';
+      element.enctype = 'multipart/form-data';
+      element.noValidate = true;
+
       element.style.width = this.width;
       element.style.padding = this.padding;
       element.style.bottom = this.bottom;
