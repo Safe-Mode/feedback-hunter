@@ -10,6 +10,10 @@ module.exports = function (props) {
   this.padding = (typeof props.padding === 'number') ? props.padding + MEASURE : props.padding;
   this.width = (typeof props.width === 'number') ? props.width + MEASURE : props.width;
 
+  if (props.id) {
+    this.id = props.id;
+  }
+
   Object.defineProperty(this, 'element', {
     get: function () {
       var element = document.createElement('form');
@@ -17,6 +21,7 @@ module.exports = function (props) {
       element.method = 'POST';
       element.enctype = 'multipart/form-data';
       element.noValidate = true;
+      element.id = this.id;
 
       element.style.width = this.width;
       element.style.padding = this.padding;

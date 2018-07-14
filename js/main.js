@@ -1,6 +1,7 @@
 'use strict';
 
 (function () {
+  var formID = 'kalibri-form';
   var redColor = '#7e262e';
   var gradient = 'linear-gradient(60deg, rgb(126, 38, 46), rgb(199, 67, 80))';
 
@@ -19,7 +20,8 @@
     width: 300,
     padding: 25,
     bottom: 20,
-    right: 20
+    right: 20,
+    id: formID
   });
   var formEl = form.element;
 
@@ -111,7 +113,7 @@
   var onOpenBtnClick = function (evt) {
     evt.preventDefault();
     document.querySelector('body').appendChild(formEl);
-    document.querySelector('form').addEventListener('submit', onFormSubmit);
+    document.querySelector('#' + formID).addEventListener('submit', onFormSubmit);
   };
 
   var closeButton = new CloseButton({
