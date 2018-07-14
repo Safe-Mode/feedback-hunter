@@ -10,6 +10,7 @@ module.exports = function (element) {
   element.style.borderRadius = '50%';
   element.style.border = 'none';
   element.style.cursor = 'pointer';
+  element.style.outline = 'none';
 
   var opacity = START_OPACITY;
 
@@ -42,5 +43,9 @@ module.exports = function (element) {
   };
 
   animateBlink(element);
-  element.querySelector('img').style.width = '70%';
+
+  var img = element.querySelector('img');
+
+  img.style.width = '70%';
+  img.style.margin = '0 auto';
 };

@@ -12,6 +12,7 @@ module.exports = function (element) {
   element.style.backgroundImage = gradient;
   element.style.outline = 'none';
   element.style.cursor = 'pointer';
+  element.style.lineHeight = '1';
 
   var toggleActiveState = function (button) {
     button.style.borderColor = (button.style.borderColor === 'transparent') ? '#7e262e' : 'transparent';
