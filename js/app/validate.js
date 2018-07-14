@@ -8,7 +8,9 @@ var errorsMap = {
   email: 'Введите валидный email'
 };
 
-module.exports = function (form) {
+module.exports = function (form, cb, props) {
+  var error = false;
+
   var validate = function (input) {
     var error = document.createElement('p');
 
@@ -35,10 +37,15 @@ module.exports = function (form) {
     }
 
     if (field.checkValidity() === false) {
+      error = true;
       validate(field);
       field.style.boxShadow = errorStyle;
     } else {
       field.style.boxShadow = 'none';
     }
   });
+
+  if (!error) {
+    cb(props);
+  }
 };

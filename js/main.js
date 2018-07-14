@@ -13,6 +13,7 @@
   var CloseButton = require('./app/close-button');
   var validate = require('./app/validate');
   var md5 = require('./../node_modules/spark-md5/spark-md5');
+  var backend = require('./app/backend');
 
   var form = new Form({
     width: 300,
@@ -66,9 +67,7 @@
   formEl.appendChild(messageEl);
   formEl.appendChild(buttonEl);
 
-  var onFormSubmit = function (evt) {
-    validate(evt.target);
-
+  var onXHRSuccess = function () {
     var success = new Form({
       width: 350,
       padding: 25,
@@ -81,6 +80,22 @@
 
     document.querySelector('body').removeChild(formEl);
     document.querySelector('body').appendChild(successEl);
+  };
+
+  var onXHRError = function (error) {
+    console.log(error);
+  };
+
+  var onFormSubmit = function (evt) {
+    var props = {
+      url: '',
+      data: new FormData(evt.target),
+      onLoad: onXHRSuccess,
+      onError: onXHRError
+    };
+
+    validate(evt.target, backend.save, props);
+
     evt.preventDefault();
   };
 
