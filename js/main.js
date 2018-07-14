@@ -12,6 +12,7 @@
   var OpenButton = require('./app/open-button');
   var CloseButton = require('./app/close-button');
   var validate = require('./app/validate');
+  var md5 = require('./../node_modules/spark-md5/spark-md5');
 
   var form = new Form({
     width: 300,
@@ -50,7 +51,14 @@
   var buttonEl = button.element;
   var select = new Select(['Ростовкая обл.', 'Московская обл.', 'Ленинградская обл.']);
   var selectEl = select.element;
+  var hiddenInput = new FormInput({
+    type: 'hidden'
+  });
+  var hiddenInputEl = hiddenInput.element;
 
+  hiddenInputEl.dataset.md5 = md5.hash(window.location.hostname);
+
+  formEl.appendChild(hiddenInputEl);
   formEl.appendChild(nameInputEl);
   formEl.appendChild(emailInputEl);
   formEl.appendChild(phoneInputEl);
