@@ -68,6 +68,19 @@
 
   var onFormSubmit = function (evt) {
     validate(evt.target);
+
+    var success = new Form({
+      width: 350,
+      padding: 25,
+      bottom: 20,
+      right: 20
+    });
+    var successEl = success.element;
+
+    successEl.innerHTML = '<p style="margin: 0; font-size: 18px; line-height: 1.5; color: ' + redColor + ';">Ваш вопрос успешно отправлен!<br>Наш менеджер свяжется с вами в ближайшее время.</p>';
+
+    document.querySelector('body').removeChild(formEl);
+    document.querySelector('body').appendChild(successEl);
     evt.preventDefault();
   };
 
