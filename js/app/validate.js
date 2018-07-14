@@ -17,8 +17,9 @@ module.exports = function (form) {
 
     if (input.validity.valueMissing) {
       error.textContent = 'Это поле обязательно для заполнения';
-      input.insertAdjacentElement('afterend', error);
     } else if (input.validity.patternMismatch) {
+      error.textContent = errorsMap[input.type];
+    } else if (input.validity.typeMismatch) {
       error.textContent = errorsMap[input.type];
     }
 
